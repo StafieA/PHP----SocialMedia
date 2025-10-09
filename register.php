@@ -1,3 +1,27 @@
+
+<?php
+
+$con = mysqli_connect("localhost","root","","socialnetwork");
+   if(mysqli_connect_errno()){
+   	echo "Failed to connect:".mysqli_connect_errno();
+   }
+$fname="";
+$lname="";
+$email="";
+$email2="";
+$password="";
+$password2="";
+$date ="";
+$error_arry =""
+
+?>
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
