@@ -1,10 +1,13 @@
 
 <?php
 
+ session_start();
+
 $con = mysqli_connect("localhost","root","","socialnetwork");
    if(mysqli_connect_errno()){
    	echo "Failed to connect:".mysqli_connect_errno();
    }
+
 $fname="";
 $lname="";
 $email="";
@@ -19,21 +22,25 @@ $error_arry ="";
        				$fname = strip_tags($_POST['reg_fname']);   //Remove html tags
        				$fname = str_replace(' ','', $fname);        //Remove spaces
        				$fname = ucfirst(strtolower($fname));       //Lowercase all letter and uppercase the first one
+       				$_SESSION['reg_fname'] = $fname;            //Stores first name in session variable
        				
        				//Last name
        				$lname = strip_tags($_POST['reg_lname']);
        				$lname = str_replace(' ','', $lname);       //Remove spaces
-       				$lname = ucfirst(strtolower($lname));       //Lowercase all letter and uppercase the first one
+       				$lname = ucfirst(strtolower($lname));       //Lowercase all letter and uppercase the first 
+       				$_SESSION['reg_lname'] = $lname;            //Stores last name in session variable
        				
        				//Email
        				$email = strip_tags($_POST['reg_email']);
        				$email = str_replace(' ','', $email);       //Remove spaces
        				$email = ucfirst(strtolower($email));       //Lowercase all letter and uppercase the first one
+       				$_SESSION['reg_email'] = $email;            //Stores email in session variable
        				
        				// Confirmation email
        				$email2 = strip_tags($_POST['reg_email2']);
        				$email2 = str_replace(' ','', $email2);       //Remove spaces
        				$email2 = ucfirst(strtolower($email2));       //Lowercase all letter and uppercase the first one
+       				$_SESSION['reg_email2'] = $email2;            //Stores email2 in session variable
        				
        				//Password
        				$password= strip_tags($_POST['reg_password']);
@@ -82,7 +89,7 @@ $error_arry ="";
        					}
        				}
 
-       				if(strlen($password) >30 || strlen($password)<5)){
+       				if(strlen($password) >30 || strlen($password)<5){
 							echo "Your password must be between 5 and 30 characters";
                         }
        			}
@@ -103,13 +110,29 @@ $error_arry ="";
 </head>
 <body>
 	<form action="register.php" method="POST">
-		<input type="text" name="reg_fname" placeholder="First Name" required>
+		<input type="text" name="reg_fname" placeholder="First Name" value="<?php
+			if (isset($_SESSION['reg_fname'])) {
+				 echo $_SESSION['reg_fname'];
+			}
+			?>"required>
 		<br>
-		<input type="text" name="reg_lname" placeholder="Last Name" required>
+		<input type="text" name="reg_lname" placeholder="Last Name" value="<?php
+			if (isset($_SESSION['reg_lname'])) {
+				 echo $_SESSION['reg_lname'];
+			}
+			?>" required>
 		<br>
-		<input type="email" name="reg_email" placeholder="Email" required>
+		<input type="email" name="reg_email" placeholder="Email" value="<?php
+			if (isset($_SESSION['reg_email'])) {
+				 echo $_SESSION['reg_email'];
+			}
+			?>" required>
 		<br>
-		<input type="email" name="reg_email2" placeholder="Confirm Email" required>
+		<input type="email" name="reg_email2" placeholder="Confirm Email" value="<?php
+			if (isset($_SESSION['reg_email2'])) {
+				 echo $_SESSION['reg_email2'];
+			}
+			?>" required>
 		<br>
 		<input type="password" name="reg_password" placeholder="Password" required>
 		<br>
