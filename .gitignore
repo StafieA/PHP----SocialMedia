@@ -1,0 +1,38 @@
+ 
+# PHP / XAMPP project .gitignore
+
+# Composer dependencies
+/vendor/
+
+# Environment and config files
+.env
+.env.local
+.env.*.local
+
+# IDE and editor settings
+/.idea/
+/.vscode/
+
+# Logs, caches, and temp files
+*.log
+*.tmp
+*.cache
+*.bak
+*.swp
+*.swo
+*.DS_Store
+Thumbs.db
+
+# System / OS files
+ehthumbs.db
+Desktop.ini
+
+# Uploads and generated files
+/uploads/
+# or comment out if you want example uploads
+# /public/uploads/
+
+# Node and frontend build folders (optional)
+node_modules/
+dist/
+build/
