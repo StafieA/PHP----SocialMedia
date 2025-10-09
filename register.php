@@ -14,6 +14,48 @@ $password2="";
 $date ="";
 $error_arry =""
 
+       			if(isset($_POST['register_button'])){
+       				//First name
+       				$fname = strip_tags($_POST['reg_fname']);   //Remove html tags
+       				$fname = str_replace(' ','', $fname)        //Remove spaces
+       				$fname = ucfirst(strtolower($fname));       //Lowercase all letter and uppercase the first one
+       				
+       				//Last name
+       				$lname = strip_tags($_POST['reg_lname']);
+       				$lname = str_replace(' ','', $lname)        //Remove spaces
+       				$lname = ucfirst(strtolower($lname));       //Lowercase all letter and uppercase the first one
+       				
+       				//Email
+       				$email = strip_tags($_POST['reg_email']);
+       				$email = str_replace(' ','', $email)        //Remove spaces
+       				$email = ucfirst(strtolower($email));       //Lowercase all letter and uppercase the first one
+       				
+       				// Confirmation email
+       				$email2 = strip_tags($_POST['reg_email2']);
+       				$email2 = str_replace(' ','', $email2)        //Remove spaces
+       				$email2 = ucfirst(strtolower($email2));       //Lowercase all letter and uppercase the first one
+       				
+       				//Password
+       				$password= strip_tags($_POST['reg_password']);
+
+       				//Password
+       				$password2= strip_tags($_POST['reg_password2']);
+       				
+       				$date = date(Y-m) //Current date
+
+       				if($email == $email2){
+       					if(filter_var($email,FILTER_VALIDATE_EMAIL)){
+
+       						$email = filter_var($email,FILTER_VALIDATE_EMAIL);
+       					}else{
+       						echo "Invalid format";
+       					}
+
+       				} else{
+       					echo "Emails don t match";
+       				}
+       			}
+
 ?>
 
 
@@ -34,9 +76,9 @@ $error_arry =""
 		<br>
 		<input type="text" name="reg_lname" placeholder="Last Name" required>
 		<br>
-		<input type="email" name="email" placeholder="Email" required>
+		<input type="email" name="reg_email" placeholder="Email" required>
 		<br>
-		<input type="email" name="email2" placeholder="Confirm Email" required>
+		<input type="email" name="reg_email2" placeholder="Confirm Email" required>
 		<br>
 		<input type="password" name="reg_password" placeholder="Password" required>
 		<br>
