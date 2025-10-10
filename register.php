@@ -92,6 +92,22 @@ $error_array =array();
        				if(strlen($password) >30 || strlen($password)<5){
 							array_push($error_array, "Your password must be between 5 and 30 characters<br>");
                         }
+
+                        if(empty($error_array)){
+                        	$password = md5(password);  //Encrypt password for database
+                        	$username = strtolower($fname."_".$lname); 
+
+                        	$usernames_query = mysqli_query($con, "SELECT username FROM users WHERE username = '$username'");
+                        	$i = 0;
+
+                        	while(mysqli_num_rows($usernames_query) != 0){
+                        		$i++;
+                        	     $username = $username."_".i;
+                        	     $usernames_query = mysqli_query($con, "SELECT username FROM users WHERE username = '$username'");
+
+                        		}
+
+                        }
        			}
 
 ?>
