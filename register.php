@@ -21,7 +21,7 @@
  			<br>
  			<input type="password" name="log_password" placeholder="Password">
  			<br>
- 			<input type="submit" name="log_button" value="Login">
+ 			<input type="submit" name="login_button" value="Login">
      </form>	
 
 	<form action="register.php" method="POST">
