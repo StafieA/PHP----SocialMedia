@@ -125,6 +125,12 @@ $error_array =array();
 
                              $query = mysqli_query($con, "INSERT INTO users VALUES ('','$fname','$lname','$username','$email','$password','$date','$profile_pic','0','0','no',',')");
 
+                             array_push($error_array, "<span style='color: #14C800;'> Succesfully registered ! </span>");
+                             $_SESSION['reg_fname'] = "";
+                             $_SESSION['reg_lname'] = "";
+                             $_SESSION['reg_email'] = "";
+                             $_SESSION['reg_email2'] = "";
+
                         }
        			}
 
@@ -188,6 +194,8 @@ $error_array =array();
 		        else if(in_array("Your password must be between 5 and 30 characters<br>", $error_array)) echo "Your password must be between 5 and 30 characters<br>"; ?>
 
 		<input type="submit" name="reg_button" value="Register">
+		<br>
+		<?php if(in_array("<span style='color: #14C800;'> Succesfully registered ! </span>", $error_array)) echo "<span style='color: #14C800;'> Succesfully registered ! </span>"; ?>
 	</form>
 
 </body>
