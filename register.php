@@ -14,6 +14,16 @@
 	<title></title>
 </head>
 <body>
+
+     <form action="register.php" method="POST">
+
+ 			<input type="email" name="log_email" placeholder="Email Address" >
+ 			<br>
+ 			<input type="password" name="log_password" placeholder="Password">
+ 			<br>
+ 			<input type="submit" name="log_button" value="Login">
+     </form>	
+
 	<form action="register.php" method="POST">
 		<input type="text" name="reg_fname" placeholder="First Name" value="<?php
 			if (isset($_SESSION['reg_fname'])) {
