@@ -94,18 +94,36 @@ $error_array =array();
                         }
 
                         if(empty($error_array)){
-                        	$password = md5(password);  //Encrypt password for database
+                        	$password = md5($password);  //Encrypt password for database
                         	$username = strtolower($fname."_".$lname); 
 
                         	$usernames_query = mysqli_query($con, "SELECT username FROM users WHERE username = '$username'");
-                        	$i = 0;
+                        	
 
+                        	$i = 0;
+                        	//If username exists add number to username 
                         	while(mysqli_num_rows($usernames_query) != 0){
                         		$i++;
-                        	     $username = $username."_".i;
+                        	     $username = $username."_".$i;
                         	     $usernames_query = mysqli_query($con, "SELECT username FROM users WHERE username = '$username'");
 
                         		}
+                        	$rand = rand(1,6);	
+                        	 if($rand == 1)
+                        	$profile_pic = "assets/images/profile_pics/defaults/head_deep_blue.png";
+                        	 else if($rand == 2)
+                        	$profile_pic = "assets/images/profile_pics/defaults/head_emerald.png";
+                        	 else if($rand == 3)
+                        	$profile_pic = "assets/images/profile_pics/defaults/head_amethyst.png";
+                        	 else if($rand == 4)
+                        	$profile_pic = "assets/images/profile_pics/defaults/head_belize_hole.png";
+                        	 else if($rand == 5)
+                        	$profile_pic = "assets/images/profile_pics/defaults/head_red.png";
+                        	 else if($rand == 6)
+                        	$profile_pic = "assets/images/profile_pics/defaults/head_sun_flower.png";	
+
+
+                             $query = mysqli_query($con, "INSERT INTO users VALUES ('','$fname','$lname','$username','$email','$password','$date','$profile_pic','0','0','no',',')");
 
                         }
        			}
