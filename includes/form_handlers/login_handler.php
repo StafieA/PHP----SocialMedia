@@ -1,7 +1,7 @@
 
 <?php
 
-      if(isset($_POST['reg_button'])){
+      if(isset($_POST['login_button'])){
 
            $email = filter_var($_POST['log_email'],FILTER_SANITIZE_EMAIL);
            $_SESSION['log_email'] = $email;   //store email into session variable
@@ -18,6 +18,8 @@
            		$_SESSION['username'] = $username;
            		header("Location: index.php");
            		exit();
+           	} else {
+           		array_push($error_array,"Email or password was incorect<br>");
            	}
 
       }
