@@ -14,7 +14,8 @@
 <html>
 <head>
 	
-	<title></title>
+	<title>Stafie ##Social-Media</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/register_style.css">
 </head>
 <body>
 
