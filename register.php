@@ -13,14 +13,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+
 	
 	<title>Stafie ##Social-Media</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/register_style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/register_style.css?v=2">
 </head>
 <body>
  	
 
  	<div class="wrapper">
+ 		<div class="login_box">
 	     <form action="register.php" method="POST">
 
 	 			<input type="email" name="log_email" placeholder="Email Address" value="<?php
@@ -96,6 +99,7 @@
 			<br>
 			<?php if(in_array("<span style='color: #14C800;'> Succesfully registered ! </span>", $error_array)) echo "<span style='color: #14C800;'> Succesfully registered ! </span>"; ?>
 		</form>
+		</div>
 	</div>
 
 </body>
