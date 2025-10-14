@@ -23,7 +23,13 @@
  	
 
  	<div class="wrapper">
+
  		<div class="login_box">
+ 			<div class="login_header">
+ 			<h1>Let's socialize</h1>
+ 			Login or sign up below!
+ 			
+ 		</div>
 	     <form action="register.php" method="POST">
 
 	 			<input type="email" name="log_email" placeholder="Email Address" value="<?php
