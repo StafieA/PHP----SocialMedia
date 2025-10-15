@@ -18,6 +18,8 @@
 	
 	<title>Stafie ##Social-Media</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/register_style.css?v=2">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="assets/js/register.js"></script>
 </head>
 <body>
  	
@@ -30,7 +32,8 @@
  			Login or sign up below!
  			
  		</div>
-	     <form action="register.php" method="POST">
+ 		<div id="first">
+ 			<form action="register.php" method="POST">
 
 	 			<input type="email" name="log_email" placeholder="Email Address" value="<?php
 				if (isset($_SESSION['log_email'])) {
@@ -40,19 +43,22 @@
 	 			<br>
 	 			<input type="password" name="log_password" placeholder="Password">
 	 			<br>
-	 			<input type="submit" name="login_button" value="Login">
-	            <br>
 	 			<?php if(in_array("Email or password was incorect<br>",$error_array)){
 	 				echo "Email or password was incorect<br>";
 	 			}
 	 			?>
+	 			<input type="submit" name="login_button" value="Login">
+	            <br>
+	            <a href="#" id="signup" class="signup">Need an account? Register here!</a>
+	 			
 	     </form>	
+ 		</div>
+	     
 
 
 
-
-
-		<form action="register.php" method="POST">
+         <div id="second">
+         	<form action="register.php" method="POST">
 			<input type="text" name="reg_fname" placeholder="First Name" value="<?php
 				if (isset($_SESSION['reg_fname'])) {
 					 echo $_SESSION['reg_fname'];
@@ -103,8 +109,13 @@
 
 			<input type="submit" name="reg_button" value="Register">
 			<br>
+			 
 			<?php if(in_array("<span style='color: #14C800;'> Succesfully registered ! </span>", $error_array)) echo "<span style='color: #14C800;'> Succesfully registered ! </span>"; ?>
+			 <a href="#" id="signin" class="signin">Already have an account? Sign in here!</a>
 		</form>
+         </div>
+
+		
 		</div>
 	</div>
 
